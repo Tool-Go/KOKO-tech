@@ -1,0 +1,15 @@
+{
+  "name": "ttech-site",
+  "version": "1.0.1",
+  "private": true,
+  "description": "TTECH professional website (Render-ready, patched)",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.3.1",
+    "nodemailer": "^6.9.14"
+  }
+}
