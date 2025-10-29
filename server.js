@@ -1,38 +1,38 @@
 /* TTECH web — static server for Render/Node
    - Serves /public as root
-   - Lets assets through (no SPA catch-all on /assets)
-   - Friendly caching: HTML no-cache, assets 7d
+   - Safe 'compression' require (no crash if missing)
+   - SPA-like fallback that doesn't hijack assets
 */
 const express = require("express");
 const path = require("path");
-const compression = require("compression");
+
+let compression = null;
+try { compression = require("compression"); } catch (_) { /* optional */ }
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(compression());
+// Optional gzip
+if (compression) app.use(compression());
 
-// 1) Static first (very important)
-app.use(
-  express.static(path.join(__dirname, "public"), {
-    extensions: ["html"],         // /contact -> /contact.html
-    etag: true,
-    maxAge: "7d",
-    setHeaders: (res, filePath) => {
-      if (/\.(html)$/.test(filePath)) {
-        res.setHeader("Cache-Control", "no-cache");
-      }
-    },
-  })
-);
+// 1) Static FIRST (critical)
+app.use(express.static(path.join(__dirname, "public"), {
+  extensions: ["html"],   // /contact -> /contact.html
+  etag: true,
+  maxAge: "7d",
+  setHeaders: (res, filePath) => {
+    if (/\.(html)$/i.test(filePath)) {
+      res.setHeader("Cache-Control", "no-cache");
+    }
+  }
+}));
 
 // 2) Health checks
-app.get(["/healthz", "/ping"], (req, res) => res.json({ ok: true }));
+app.get(["/healthz", "/ping"], (_, res) => res.json({ ok: true }));
 
-// 3) Optional: SPA fallback ONLY for HTML navigations, NOT for assets
+// 3) Fallback only for HTML navigations (do not catch assets)
 app.get("*", (req, res, next) => {
   const accept = req.headers.accept || "";
-  // if request looks like an asset or API, do not hijack it
   if (
     req.path.startsWith("/assets/") ||
     req.path.startsWith("/api/") ||
@@ -43,7 +43,7 @@ app.get("*", (req, res, next) => {
   if (accept.includes("text/html")) {
     return res.sendFile(path.join(__dirname, "public", "index.html"));
   }
-  return res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+  return res.status(404).send("Not found");
 });
 
 app.listen(PORT, () => {
