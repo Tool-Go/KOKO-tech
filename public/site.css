@@ -1,0 +1,38 @@
+/* TTECH global skin: vivid blue gradient + readable panels */
+:root{
+  --ttech-blue-1:#2563eb; /* same as favicon start */
+  --ttech-blue-2:#0ea5e9; /* same as favicon end   */
+}
+
+/* Full-page gradient */
+html,body{min-height:100%}
+body{
+  /* halo doux + dégradé principal */
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(255,255,255,0.14) 0%, transparent 60%),
+    linear-gradient(135deg, var(--ttech-blue-1) 0%, var(--ttech-blue-2) 100%);
+  background-attachment: fixed;
+}
+
+/* Header/Footer translucides pour flotter sur le fond */
+header.sticky{background-color: rgba(255,255,255,0.88) !important}
+footer{background-color: rgba(255,255,255,0.92)}
+
+/* Bloc principal lisible sur fond coloré (toutes les pages ont <main>) */
+main{
+  background: rgba(255,255,255,0.95);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.18);
+  margin-top: 12px;  /* espace entre header et carte */
+}
+
+/* Petites cartes/figures: accentuer la séparation */
+.reveal, figure, .ring-1{
+  background-color: white;
+}
+
+/* Bannière cookies: lisible sur fond coloré */
+#cookie-banner{background-color: rgba(255,255,255,0.96)}
+
+/* Option: renforcer les boutons bleus pour matcher le fond */
+.bg-blue-600{ background-color:#2563eb !important }
