@@ -1,53 +1,244 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TTECH — Managed IT & Cybersecurity</title>
-<meta name="description" content="Managed IT, cybersecurity, cloud migration, colocation, VoIP, and web development for SMBs in the Greater Atlanta area.">
-<link rel="icon" type="image/png" href="/assets/ttech-logo.jpeg">
-<!-- Tailwind correct CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Inter font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>html{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial}</style>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://www.google-analytics.com">
-<meta name="ga-id" content="">
-<script defer src="/app.js"></script></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTECH™ — Services</title>
+  <meta name="description" content="Managed IT, cybersecurity, cloud migration, colocation, VoIP, and web services for SMBs. SLAs, reporting, and fast onboarding.">
+  <link rel="icon" type="image/png" href="/assets/ttech-logo.jpeg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>html{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial}</style>
+  <script defer src="/app.js"></script>
+</head>
 <body class="bg-white text-slate-900">
-<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="/index.html" class="flex items-center gap-3">
       <img src="/assets/ttech-logo.jpeg" alt="TTECH logo" class="h-10 w-10 rounded-full object-cover">
-      <span class="font-extrabold text-xl tracking-tight">TTECH</span>
+      <span class="font-extrabold text-xl tracking-tight">TTECH™</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a class="hover:text-blue-700 " href="/index.html">Home</a>
+      <a class="hover:text-blue-700" href="/index.html#about">About</a>
       <a class="hover:text-blue-700 font-semibold text-blue-700" href="/services.html">Services</a>
-      <a class="hover:text-blue-700 " href="/about.html">About</a>
-      <a class="hover:text-blue-700 " href="/contact.html">Contact</a>
+      <a class="hover:text-blue-700" href="/index.html#cases">Cases</a>
+      <a class="hover:text-blue-700" href="/index.html#features">Features</a>
+      <a class="hover:text-blue-700" href="/contact.html">Contact</a>
     </nav>
     <a href="/contact.html#quote" class="hidden md:inline-flex px-3 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold shadow">Get a Quote</a>
   </div>
 </header>
+
 <main class="max-w-6xl mx-auto px-4 py-12">
   <h1 class="text-3xl font-extrabold tracking-tight">Services</h1>
-  <p class="mt-2 text-slate-600">Based on the client deck: IT support, managed services, colocation, cybersecurity, VoIP, web & procurement.</p>
+  <p class="mt-2 text-slate-600">Each engagement includes clear SLAs, monthly reporting, and a tailored onboarding plan.</p>
 
-  <section id="it-support" class="mt-10"><h2 class="text-2xl font-bold">IT Support (L1/L2/L3)</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Tiered help desk with fast escalation.</li><li>Identity & access management (MFA, policies).</li><li>Troubleshooting for email, printers, VPN.</li><li>Peripheral & mobile device management.</li></ul></section>
-  <section id="managed" class="mt-10"><h2 class="text-2xl font-bold">Managed Services</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Proactive monitoring & patching, uptime focus.</li><li>End-user productivity and onboarding/offboarding.</li><li>Monthly health reports and optimization roadmap.</li></ul></section>
-  <section id="colocation" class="mt-10"><h2 class="text-2xl font-bold">Data Center Colocation</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Cost-effective hosting of customer hardware.</li><li>Scalable racks with physical & cyber security.</li><li>24/7 remote hands and monitoring.</li></ul></section>
-  <section id="cyber" class="mt-10"><h2 class="text-2xl font-bold">Cybersecurity & Incident Management</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Risk assessments and hardening.</li><li>EDR/AV, backups with quarterly restore tests.</li><li>Incident response runbooks and training.</li><li>Regular security audits and posture reviews.</li></ul></section>
-  <section id="voip" class="mt-10"><h2 class="text-2xl font-bold">Voice over IP</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Cost-effective calling with advanced features.</li><li>Scalable lines and call routing.</li><li>Voicemail-to-email, video conferencing.</li></ul></section>
-  <section id="web" class="mt-10"><h2 class="text-2xl font-bold">Web Development & Procurement</h2><ul class="mt-3 list-disc ml-6 text-slate-700"><li>Responsive sites with SEO fundamentals.</li><li>Maintenance & security updates.</li><li>Vendor management and hardware sourcing.</li></ul></section>
+  <!-- Quick anchors -->
+  <div class="mt-6 flex flex-wrap gap-2 text-sm">
+    <a href="#managed" class="px-3 py-1 rounded-full ring-1 ring-slate-300">Managed IT</a>
+    <a href="#cyber" class="px-3 py-1 rounded-full ring-1 ring-slate-300">Cybersecurity & IR</a>
+    <a href="#cloud" class="px-3 py-1 rounded-full ring-1 ring-slate-300">Cloud Migration</a>
+    <a href="#colocation" class="px-3 py-1 rounded-full ring-1 ring-slate-300">Data Center Colocation</a>
+    <a href="#voip" class="px-3 py-1 rounded-full ring-1 ring-slate-300">VoIP</a>
+    <a href="#web" class="px-3 py-1 rounded-full ring-1 ring-slate-300">Web & Procurement</a>
+  </div>
 
-  <section class="mt-12"><div class="rounded-2xl p-6 bg-slate-50 ring-1 ring-slate-200"><h3 class="text-xl font-semibold">SLA (suggested)</h3><ul class="mt-3 list-disc ml-6 text-slate-700"><li>L1 P1: response &lt; 15 min, remediation target &lt; 2 h</li><li>L2 P1: response &lt; 30 min, remediation target &lt; 4 h</li><li>L3/P0 security incident: immediate bridge, hourly updates</li></ul></div></section>
+  <!-- MANAGED IT -->
+  <section id="managed" class="mt-12">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="order-2 md:order-1">
+        <h2 class="text-2xl font-bold">Managed IT</h2>
+        <p class="mt-2 text-slate-700">Proactive management of endpoints, updates, and user lifecycle. Reduce incidents while improving visibility.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Monitoring, patching, asset inventory</li>
+            <li>Onboarding & offboarding playbooks</li>
+            <li>Printer, VPN, identity & access</li>
+            <li>Reporting and service reviews</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Suggested SLA</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>L1 P1: response &lt; 15 min; target &lt; 2h</li>
+              <li>L2 P1: response &lt; 30 min; target &lt; 4h</li>
+              <li>L3/P0 security: immediate bridge, hourly updates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figure class="order-1 md:order-2 rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/services-support.jpg" alt="Helpdesk engineers assisting end-users" class="w-full h-72 object-cover">
+      </figure>
+    </div>
+  </section>
+
+  <!-- CYBER -->
+  <section id="cyber" class="mt-16">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <figure class="rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/services-security.jpg" alt="Security operations dashboard" class="w-full h-72 object-cover">
+      </figure>
+      <div>
+        <h2 class="text-2xl font-bold">Cybersecurity & Incident Response</h2>
+        <p class="mt-2 text-slate-700">Practical hardening aligned to NIST: least-privilege, MFA, baseline patching, and resilient backups.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Risk assessment & hardening</li>
+            <li>EDR/AV with alerting</li>
+            <li>Backups with quarterly restore tests</li>
+            <li>IR runbooks and table-top exercises</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Security posture</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>MFA, conditional access, privileged access policies</li>
+              <li>Patch cadence & vulnerability reviews</li>
+              <li>Immutable or offsite backups options</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOUD -->
+  <section id="cloud" class="mt-16">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="order-2 md:order-1">
+        <h2 class="text-2xl font-bold">Cloud Migration</h2>
+        <p class="mt-2 text-slate-700">Microsoft 365, Azure/AWS, and file server modernization — mapped to identity and policy.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Assessment, migration plan, pilot</li>
+            <li>Identity (Entra ID), device & access policies</li>
+            <li>Change management & training</li>
+            <li>Post-migration tuning & cost review</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Onboarding timeline (example)</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>Week 1: discovery & priorities</li>
+              <li>Week 2–3: pilot & quick wins</li>
+              <li>Week 4+: organization-wide rollout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figure class="order-1 md:order-2 rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/services-cloud.jpg" alt="Abstract cloud computing infrastructure" class="w-full h-72 object-cover">
+      </figure>
+    </div>
+  </section>
+
+  <!-- COLOCATION -->
+  <section id="colocation" class="mt-16">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <figure class="rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/services-network.jpg" alt="Network cables and rack for colocation" class="w-full h-72 object-cover">
+      </figure>
+      <div>
+        <h2 class="text-2xl font-bold">Data Center Colocation</h2>
+        <p class="mt-2 text-slate-700">Secure, monitored hosting for customer hardware with 24/7 remote hands and clear SLAs.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Rack space & connectivity</li>
+            <li>Physical & cyber security baseline</li>
+            <li>Remote hands, monitoring, alerting</li>
+            <li>Capacity planning & reporting</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Outcomes</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>99.95%+ uptime target</li>
+              <li>Reduced MTTR on critical incidents</li>
+              <li>Transparent audit trails</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOIP -->
+  <section id="voip" class="mt-16">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="order-2 md:order-1">
+        <h2 class="text-2xl font-bold">VoIP</h2>
+        <p class="mt-2 text-slate-700">Modern calling with routing, voicemail-to-email, and video options for distributed teams.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Call routing & IVR</li>
+            <li>Voicemail transcription & email</li>
+            <li>Softphones & desk phones</li>
+            <li>Reporting & quality reviews</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Integrations</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>Microsoft 365 / Teams</li>
+              <li>CRM call logging (where suitable)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figure class="order-1 md:order-2 rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/contact-phone.jpg" alt="Business smartphone on desk" class="w-full h-72 object-cover">
+      </figure>
+    </div>
+  </section>
+
+  <!-- WEB -->
+  <section id="web" class="mt-16">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <figure class="rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
+        <img src="/assets/cases-office.jpg" alt="Modern office collaboration for web projects" class="w-full h-72 object-cover">
+      </figure>
+      <div>
+        <h2 class="text-2xl font-bold">Web Development & Procurement</h2>
+        <p class="mt-2 text-slate-700">Business websites with SEO fundamentals and reliable hardware sourcing.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <ul class="list-disc ml-6 text-slate-700">
+            <li>Responsive sites, analytics with consent</li>
+            <li>Maintenance & security updates</li>
+            <li>Vendor management & sourcing</li>
+            <li>Lightweight CMS or static builds</li>
+          </ul>
+          <div class="rounded-2xl ring-1 ring-slate-200 p-4 bg-slate-50">
+            <div class="font-semibold">Deliverables</div>
+            <ul class="mt-2 list-disc ml-6 text-slate-700">
+              <li>SEO titles & meta per page</li>
+              <li>Performance & accessibility passes</li>
+              <li>Documentation & handover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mt-14">
+    <div class="rounded-3xl p-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
+      <div class="md:flex items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-bold">Need a tailored scope?</h3>
+          <p class="text-blue-100 mt-2">We’ll map services to your current stack & priorities.</p>
+        </div>
+        <div class="mt-6 md:mt-0 flex gap-3">
+          <a href="/contact.html#quote" class="px-5 py-3 rounded-xl bg-white text-blue-700 font-semibold">Request a Quote</a>
+          <a href="tel:+14703022997" class="px-5 py-3 rounded-xl ring-1 ring-white/50 font-semibold">Call us</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer class="border-t border-gray-200 mt-16">
   <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
     <div>
       <div class="flex items-center gap-3">
         <img src="/assets/ttech-logo.jpeg" alt="TTECH logo" class="h-8 w-8 rounded-full object-cover">
-        <div class="font-bold tracking-tight">TTECH</div>
+        <div class="font-bold tracking-tight">TTECH™</div>
       </div>
       <p class="text-sm text-gray-600 mt-3">Managed IT, cybersecurity, cloud migration, colocation, VoIP, and web development for SMBs in the Greater Atlanta area.</p>
     </div>
@@ -63,9 +254,11 @@
       <p class="text-sm"><a class="underline" href="/terms.html">Terms of Service</a></p>
     </div>
   </div>
-  <div class="text-center text-xs text-gray-500 pb-6">© <span id="year"></span> TTECH. All rights reserved.</div>
+  <div class="text-center text-xs text-gray-500 pb-6">© <span id="year"></span> TTECH™. All rights reserved.</div>
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Cookie banner -->
 <div id="cookie-banner" class="hidden fixed inset-x-3 bottom-3 z-50 rounded-xl bg-white/90 shadow-xl ring-1 ring-gray-200 p-4 backdrop-blur">
   <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
     <p class="text-sm text-gray-700">We use necessary cookies to run this site. With your consent, we also use analytics to improve your experience.</p>
@@ -94,4 +287,5 @@
     </div>
   </div>
 </div>
-</body></html>
+</body>
+</html>
