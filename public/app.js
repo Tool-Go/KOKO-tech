@@ -11,6 +11,7 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
    Cookie Consent + GA4
 ========================= */
 const LS_KEY = "ttech_cookie_prefs";
+const GA_ID = "G-XXXXXXXXXX"; // ← remplace par ton ID quand tu l’as
 
 function getPrefs() {
   try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch { return {}; }
@@ -227,3 +228,112 @@ document.addEventListener('DOMContentLoaded', () => {
   const mql = window.matchMedia('(min-width: 768px)');
   mql.addEventListener('change', () => { if (mql.matches) openNav(false); });
 });
+// ---------- Consent + GA4 loader ----------
+(function(){
+  const KEY = "ttechConsent";
+  let state = { analytics:false, marketing:false, setAt: null };
+  let gaLoaded = false;
+
+  function readConsent(){
+    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') return s; } catch(e){}
+    return { analytics:false, marketing:false, setAt:null };
+  }
+  function saveConsent(next){
+    next.setAt = new Date().toISOString();
+    localStorage.setItem(KEY, JSON.stringify(next));
+    state = next;
+  }
+
+  function gtag(){ window.dataLayer = window.dataLayer || []; window.dataLayer.push(arguments); }
+
+  function applyConsentToGtag(){
+    // Consent Mode v2 de base
+    window.dataLayer = window.dataLayer || [];
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: state.analytics ? 'granted' : 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      personalization_storage: state.marketing ? 'granted' : 'denied',
+      ad_user_data: state.marketing ? 'granted' : 'denied',
+      ad_personalization: state.marketing ? 'granted' : 'denied'
+    });
+  }
+
+  function loadGA(){
+    if (gaLoaded || !GA_ID) return;
+    // Charger le script GA4
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(s);
+
+    // Init
+    window.dataLayer = window.dataLayer || [];
+    gtag('js', new Date());
+    // GA4 anonymise l'IP par défaut; on garde une config sobre
+    gtag('config', GA_ID);
+    gaLoaded = true;
+  }
+
+  function reflectUIFromConsent(){
+    const a = document.getElementById('toggle-analytics');
+    const m = document.getElementById('toggle-marketing');
+    if (a) a.checked = !!state.analytics;
+    if (m) m.checked = !!state.marketing;
+  }
+
+  function showCookieUIIfNeeded(){
+    const banner = document.getElementById('cookie-banner');
+    const modal  = document.getElementById('cookie-modal');
+    if (!banner || !modal) return; // pas de bannière sur cette page
+    const hasChoice = !!state.setAt;
+    banner.classList.toggle('hidden', hasChoice);
+    modal.classList.add('hidden');
+  }
+
+  function acceptAll(){
+    saveConsent({analytics:true, marketing:true});
+    applyConsentToGtag();
+    if (state.analytics) loadGA();
+    showCookieUIIfNeeded();
+  }
+  function rejectAll(){
+    saveConsent({analytics:false, marketing:false});
+    applyConsentToGtag();
+    showCookieUIIfNeeded();
+  }
+  function saveFromToggles(){
+    const a = document.getElementById('toggle-analytics')?.checked ?? false;
+    const m = document.getElementById('toggle-marketing')?.checked ?? false;
+    saveConsent({analytics:a, marketing:m});
+    applyConsentToGtag();
+    if (a) loadGA();
+    showCookieUIIfNeeded();
+  }
+
+  // Wire UI events (si présents)
+  document.addEventListener('DOMContentLoaded', ()=>{
+    state = readConsent();
+    applyConsentToGtag();
+    reflectUIFromConsent();
+    showCookieUIIfNeeded();
+
+    if (state.analytics) loadGA();
+
+    const btnAccept = document.getElementById('btn-accept-all');
+    const btnReject = document.getElementById('btn-reject-all');
+    const btnCust   = document.getElementById('btn-customize');
+    const btnSave   = document.getElementById('btn-save-prefs');
+    const btnClose  = document.querySelectorAll('#btn-close-modal');
+
+    const banner = document.getElementById('cookie-banner');
+    const modal  = document.getElementById('cookie-modal');
+
+    btnAccept && btnAccept.addEventListener('click', acceptAll);
+    btnReject && btnReject.addEventListener('click', rejectAll);
+    btnCust   && btnCust.addEventListener('click', ()=>{ modal?.classList.remove('hidden'); });
+    (btnClose||[]).forEach(b=>b.addEventListener('click', ()=> modal?.classList.add('hidden')));
+    btnSave   && btnSave.addEventListener('click', saveFromToggles);
+  });
+})();

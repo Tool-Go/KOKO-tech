@@ -1,4 +1,8 @@
 User-agent: *
-Allow: /
+Disallow : /
+# on passera à Allow lorsque l'on mettra en production.
 
-Sitemap: /sitemap.xml
+Disallow: /thanks.html
+Disallow: /404.html
+
+Sitemap: https://www.ttech.live/sitemap.xml
