@@ -167,30 +167,63 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initReveal();
 });
-// --- Active menu + legacy hash mapping ---
+// --- Active menu + legacy hash mapping + mobile nav ---
 document.addEventListener('DOMContentLoaded', () => {
-  // a) Activer l’onglet courant
+  // a) Active state (desktop + mobile)
   const path = location.pathname.toLowerCase();
   let current = 'home';
   if (path.endsWith('/services.html')) current = 'services';
   else if (path.endsWith('/about.html')) current = 'about';
   else if (path.endsWith('/contact.html')) current = 'contact';
 
-  document.querySelectorAll('nav a[data-nav]').forEach(a => {
-    a.classList.toggle('font-semibold', a.dataset.nav === current);
-    a.classList.toggle('text-blue-700', a.dataset.nav === current);
+  document.querySelectorAll('a[data-nav]').forEach(a => {
+    const isActive = a.dataset.nav === current;
+    a.classList.toggle('font-semibold', isActive);
+    a.classList.toggle('text-blue-700', isActive);
   });
 
-  // b) Rendre compatibles les anciens hash (majuscules)
-  const mapHash = {
-    '#About':'#about', '#Services':'#services',
-    '#Cases':'#cases', '#Features':'#features'
-  };
+  // b) Legacy hash mapping
+  const mapHash = { '#About':'#about', '#Services':'#services', '#Cases':'#cases', '#Features':'#features' };
   if (mapHash[location.hash]) {
     const target = mapHash[location.hash];
     history.replaceState({}, '', target);
     const el = document.querySelector(target);
     if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
   }
-});
 
+  // c) Mobile nav toggles
+  const btnOpen  = document.getElementById('btn-menu');
+  const btnClose = document.getElementById('btn-close-menu');
+  const panel    = document.getElementById('mobile-nav');
+  const backdrop = document.getElementById('nav-backdrop');
+
+  function openNav(open) {
+    if (!panel || !backdrop) return;
+    if (open) {
+      panel.classList.remove('translate-y-[-100%]', 'opacity-0');
+      panel.classList.add('translate-y-0', 'opacity-100');
+      backdrop.classList.remove('hidden');
+      btnOpen?.setAttribute('aria-expanded', 'true');
+      panel.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('overflow-hidden'); // lock scroll
+    } else {
+      panel.classList.add('translate-y-[-100%]', 'opacity-0');
+      panel.classList.remove('translate-y-0', 'opacity-100');
+      backdrop.classList.add('hidden');
+      btnOpen?.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('overflow-hidden');
+    }
+  }
+  btnOpen?.addEventListener('click', () => openNav(true));
+  btnClose?.addEventListener('click', () => openNav(false));
+  backdrop?.addEventListener('click', () => openNav(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openNav(false); });
+
+  // Fermer le menu quand on clique un lien mobile
+  panel?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => openNav(false)));
+
+  // Réinitialiser si on repasse en desktop
+  const mql = window.matchMedia('(min-width: 768px)');
+  mql.addEventListener('change', () => { if (mql.matches) openNav(false); });
+});
