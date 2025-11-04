@@ -36,3 +36,142 @@ main{
 
 /* Option: renforcer les boutons bleus pour matcher le fond */
 .bg-blue-600{ background-color:#2563eb !important }
+
+/* Etend un bloc à l’entière largeur de la fenêtre (même si le site est centré) */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+/* HERO vidéo */
+.hero-video { position: relative; overflow: hidden; }
+.hero-video__bg {
+  width: 100%;
+  height: min(80vh, 760px);
+  display: block;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+.hero-video__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(16,45,255,.35), rgba(12,23,55,.65));
+}
+.hero-video__content {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  pointer-events: none; /* n’empêche pas les clics sous-jacents */
+}
+.hero-video__inner {
+  pointer-events: auto;
+  width: 100%; max-width: 1100px; margin: 0 auto; padding: 48px 20px;
+  color: #fff; text-align: left;
+}
+.hero-title { font-weight: 800; letter-spacing: .2px; font-size: clamp(28px, 4.2vw, 46px); margin: 0 0 10px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.hero-sub { font-size: clamp(16px, 2.2vw, 20px); opacity: .95; max-width: 920px; margin: 0 0 20px;
+  text-shadow: 0 6px 22px rgba(0,0,0,.35);
+}
+.hero-accent { color: #5ec8ff; }
+
+/* Bandeau tech: logos cliquables */
+.tech-strip a {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border-radius: 12px; transition: .15s; filter: grayscale(1); opacity: .85;
+}
+.tech-strip a:hover { background: #fff; filter: grayscale(0); opacity: 1; box-shadow: 0 8px 24px rgba(2,6,23,.10); }
+.tech-strip img { height: 28px; width: auto; display: block; }
+
+/* Cartes Services cliquables (si utilisées ailleurs) */
+.service-card { display:block; border:1px solid #e5e7eb; border-radius:18px; overflow:hidden; background:#fff;
+  transition:.15s; text-decoration:none; color:inherit;
+}
+.service-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(2,6,23,.10); }
+.service-card img { width:100%; height:180px; object-fit:cover; display:block; }
+
+
+/* Video */
+
+.hero-video{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.hero-video__bg{width:100%;height:520px;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+.hero-video__overlay{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,28,87,.45),rgba(6,28,87,.45));
+  /* ou plus léger: .30 */
+  backdrop-filter:saturate(1.1) brightness(.95)}
+.hero-video__content{position:absolute;left:48px;bottom:48px;right:48px;color:#fff}
+@media (max-width:768px){
+  .hero-video__bg{height:420px}
+  .hero-video__content{left:20px;right:20px;bottom:24px}
+}
+
+
+/* HERO vidéo */
+.hero-video { 
+  position: relative; 
+  overflow: hidden; 
+}
+
+.hero-video__bg {
+  width: 100%;
+  height: clamp(380px, 80vh, 760px); /* plein écran sans « avaler » tout le fold */
+  display: block;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.hero-video { position: relative; }
+.hero-video__bg { position: relative; z-index: 0; }
+.hero-video__overlay { z-index: 1; }
+.hero-video__content { z-index: 2; }
+
+
+/* Voile bleu premium (par-dessus la vidéo) */
+.hero-video__overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(1100px 550px at 10% 0%, rgba(46,118,255,.35) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(16,45,255,.38) 0%, rgba(12,23,55,.62) 100%);
+  pointer-events: none;
+}
+
+/* Contenu en overlay (titre/sous-titre/CTA) */
+.hero-video__content {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  pointer-events: none;             /* ne bloque pas les clics sous-jacents */
+}
+.hero-video__inner {
+  pointer-events: auto;             /* réactive les liens/CTA */
+  width: 100%; max-width: 1100px; margin: 0 auto; padding: 48px 20px;
+  color: #fff; text-align: left;
+}
+.hero-title {
+  font-weight: 800; letter-spacing: .2px;
+  font-size: clamp(28px, 4.2vw, 46px); margin: 0 0 10px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 20px); opacity: .96; max-width: 920px; margin: 0 0 18px;
+  text-shadow: 0 6px 22px rgba(0,0,0,.35);
+}
+.hero-accent { color: #5ec8ff; } /* “Greater Atlanta” en bleu pour l’effet premium */
+
+@media (max-width: 768px) {
+  .hero-video__bg { height: clamp(320px, 60vh, 560px); }
+}
+/* Bandeau partenaires — icônes inline SVG */
+.tech-strip a{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:12px;
+  background:#f8fafc;border:1px solid #e5e7eb;
+  transition:.15s;filter:grayscale(1);opacity:.9
+}
+.tech-strip a:hover{filter:grayscale(0);opacity:1;box-shadow:0 8px 24px rgba(2,6,23,.10)}
+.tech-strip svg{height:22px;width:auto;display:block}
+.tech-strip .label{font-size:14px;color:#0f172a}
+
+
