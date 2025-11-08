@@ -1,7 +1,7 @@
-/* TTECH global skin: vivid blue gradient + readable panels */
+/* KOKO IT Services global skin: vivid blue gradient + readable panels */
 :root{
-  --ttech-blue-1:#2563eb; /* same as favicon start */
-  --ttech-blue-2:#0ea5e9; /* same as favicon end   */
+  --kokoits-blue-1:#2563eb; /* same as favicon start */
+  --kokoits-blue-2:#0ea5e9; /* same as favicon end   */
 }
 
 /* Full-page gradient */
@@ -10,7 +10,7 @@ body{
   /* halo doux + dégradé principal */
   background:
     radial-gradient(1200px 800px at 15% -10%, rgba(255,255,255,0.14) 0%, transparent 60%),
-    linear-gradient(135deg, var(--ttech-blue-1) 0%, var(--ttech-blue-2) 100%);
+    linear-gradient(135deg, var(--kokoits-blue-1) 0%, var(--kokoits-blue-2) 100%);
   background-attachment: fixed;
 }
 
@@ -466,4 +466,30 @@ html, body { overflow-x: hidden; }
 /* ===== ESPACEMENT: réduire l’écart sous la vidéo jusqu’au H2 “Services” ===== */
 #services{ margin-top: clamp(10px, 2.2vw, 18px); }   /* avant: ~30px */
 .section-title{ margin-top: 0; margin-bottom: 12px; }
+
+/* — Voile bleu premium sur les vignettes de services — */
+.service-card .thumb {
+  position: relative;
+  display: block;
+  height: 180px;            /* adapte si besoin */
+  overflow: hidden;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.service-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.service-card .thumb::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 450px at 12% -6%, rgba(46,118,255,.28) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(16,45,255,.22) 0%, rgba(12,23,55,.38) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
 

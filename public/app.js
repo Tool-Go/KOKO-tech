@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------
-   TTECH front: consentement cookies, GA conditionnel, menu mobile,
+   KOKO IT Services front: consentement cookies, GA conditionnel, menu mobile,
    ancrage smooth-scroll, reveal au scroll.
 ------------------------------------------------------------- */
 
@@ -10,7 +10,7 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 /* =========================
    Cookie Consent + GA4
 ========================= */
-const LS_KEY = "ttech_cookie_prefs";
+const LS_KEY = "kokoits_cookie_prefs";
 const GA_ID = "G-XXXXXXXXXX"; // ← remplace par ton ID quand tu l’as
 
 function getPrefs() {
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // ---------- Consent + GA4 loader ----------
 (function(){
-  const KEY = "ttechConsent";
+  const KEY = "kokoitsConsent";
   let state = { analytics:false, marketing:false, setAt: null };
   let gaLoaded = false;
 

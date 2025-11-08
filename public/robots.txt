@@ -5,4 +5,4 @@ Disallow : /
 Disallow: /thanks.html
 Disallow: /404.html
 
-Sitemap: https://www.ttech.live/sitemap.xml
+Sitemap: https://www.kokoits/sitemap.xml
