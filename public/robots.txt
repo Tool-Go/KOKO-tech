@@ -1,8 +1,4 @@
 User-agent: *
-Disallow : /
-# on passera à Allow lorsque l'on mettra en production.
-
-Disallow: /thanks.html
-Disallow: /404.html
+Allow : /
 
 Sitemap: https://www.kokoits/sitemap.xml

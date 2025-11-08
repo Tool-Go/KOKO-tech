@@ -491,5 +491,17 @@ html, body { overflow-x: hidden; }
   mix-blend-mode: multiply;
   pointer-events: none;
 }
+/* --- Thumb + overlay bleu (global) --- */
+.thumb { position: relative; display:block; overflow:hidden; }
+.thumb img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:0; }
+.thumb.overlay-blue::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    radial-gradient(900px 450px at 12% -6%, rgba(46,118,255,.28) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(16,45,255,.22) 0%, rgba(12,23,55,.38) 100%);
+  mix-blend-mode: multiply;
+  border-radius:inherit;
+}
+
 
 

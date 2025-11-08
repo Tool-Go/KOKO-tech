@@ -1,4 +1,4 @@
-// server.js — TTECH site (Express + static + vidéo MP4 correcte)
+// server.js — KOKO IT Services site (Express + static + vidéo MP4 correcte)
 // Minimal, production-ready. Aucun paquet en plus que `express` et `compression`.
 
 const express = require("express");
@@ -44,6 +44,24 @@ app.use(
   })
 );
 
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      scriptSrc: ["'self'", "https://cdn.tailwindcss.com"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      connectSrc: ["'self'"],
+      mediaSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+      frameAncestors: ["'self'"]
+    }
+  },
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" }
+}));
+
+
 // /public => HTML/CSS/JS/… (cache plus court)
 app.use(
   express.static(PUBLIC_DIR, {
@@ -61,6 +79,28 @@ app.get("/", (_req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, "index.html"));
 });
 
+// Cache agressif pour les assets (1 an, immutable)
+const staticOpts = {
+  etag: true,
+  lastModified: true,
+  maxAge: '1y',
+  immutable: true,
+};
+
+// Servez /assets/ avec long cache
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets'), staticOpts));
+// Servez le reste du dossier public (images/JS/CSS profiteront de l’etag et du cache selon extensions)
+app.use(express.static(path.join(__dirname, 'public'), { etag: true, lastModified: true }));
+
+// Pas de cache pour les pages HTML (toujours fraîches)
+app.use((req, res, next) => {
+  if (req.path.endsWith('.html') || req.path === '/' ) {
+    res.set('Cache-Control', 'no-store');
+  }
+  next();
+});
+
+
 // --- 404 (à la toute fin) ----------------------------------------------------
 app.use((req, res) => {
   const notFound = path.join(PUBLIC_DIR, "404.html");
@@ -71,7 +111,10 @@ app.use((req, res) => {
   }
 });
 
+// --- Health ------------------
+app.get('/__health', (req, res) => res.type('text').send('ok'));
+
 // --- Lancement ---------------------------------------------------------------
 app.listen(PORT, () => {
-  console.log(`✅ TTECH site listening on :${PORT}`);
+  console.log(`✅ KOKO IT Services site listening on :${PORT}`);
 });
