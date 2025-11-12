@@ -21,6 +21,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/site.css?v=prod4">
   <style>html{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial}</style>
+  
+<link rel="stylesheet" href="/site.css?v=hero3">   <!-- cache-buster -->
+  <style>
+  /* === CRITICAL HERO CSS (wins over stale CDN) === */
+  :root{--brand-navy:#061a3a;--accent-blue:#7ec7ff}
+  .hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+        height:clamp(60vh,56.25vw,88vh);border-radius:28px;overflow:hidden;background:var(--brand-navy)}
+  .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;background:#000}
+  .hero__overlay,.hero-video__overlay{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:multiply;
+    background:
+      radial-gradient(1100px 550px at 12% -6%, rgba(46,118,255,.30) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(16,45,255,.32) 0%, rgba(12,23,55,.56) 100%);}
+  .hero__content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
+    gap:clamp(12px,1.6vw,22px);padding:clamp(18px,4vw,56px);color:#fff;text-shadow:0 10px 36px rgba(0,0,0,.35)}
+  .hero-title{margin:0;line-height:1.06;letter-spacing:-.02em;font-weight:800;max-width:18ch;font-size:clamp(28px,5.6vw,72px)}
+  .hero-sub{margin:0;max-width:60ch;opacity:.96;font-size:clamp(14px,1.6vw,22px)}
+  .hero-accent{color:var(--accent-blue)}
+  .br-lg{display:none}@media(min-width:900px){.br-lg{display:inline}}
+  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -101,21 +120,13 @@
 
 <!-- === HERO (full-bleed video with overlay & title) ===================== -->
 <section id="Home" class="hero">
- <video ... aria-label="Data center operations"></video>
-  <video class="hero__video" autoplay muted playsinline loop preload="metadata" poster="/assets/hero-poster.jpg">
-    <source src="/assets/hero.mp4" type="video/mp4">
+  <video class="hero__video" autoplay muted playsinline loop preload="metadata" poster="/assets/hero-poster.jpg?v=hero3">
+  <source src="/assets/hero.mp4?v=hero3" type="video/mp4">
   </video>
-
-  <div class="hero-video__overlay"></div>
-
+  <div class="hero__overlay"></div> <!-- ⬅︎ ce nom -->
   <div class="hero__content container">
-    <h1 class="hero-title">
-          Enterprise-grade IT for SMBs <br class="br-lg"> in <span class="hero-accent">Greater Atlanta</span>
-    </h1>
-    <p class="hero-sub">
-      Cybersecurity, cloud migration, colocation &amp; end-user support — with measurable uptime gains and fewer tickets.
-    </p>
-
+    <h1 class="hero-title">Enterprise-grade IT for SMBs in <span class="hero-accent">Greater Atlanta</span></h1>
+    <p class="hero-sub">Cybersecurity, cloud migration, colocation &amp; end-user support — with measurable uptime gains and fewer tickets.</p>
     <div class="hero__cta">
       <a class="btn btn-primary" href="/contact.html#quote">Get a Quote</a>
       <a class="btn btn-ghost" href="#Services">Explore Services</a>
@@ -130,7 +141,7 @@
   <div class="bg-gradient-to-r from-blue-600/40 via-sky-400/40 to-blue-600/40 p-[1.5px] rounded-2xl shadow-[0_8px_28px_rgba(2,6,23,.12)]">
     <div class="bg-white/85 backdrop-blur-md rounded-2xl px-4 md:px-6 py-3 md:py-4">
       <p class="text-sm text-slate-600 mt-2">
-        At <span class="font-extrabold text-xl tracking-tight">KOKO IT services</span>, we provide cutting-edge IT solutions to help businesses of all sizes thrive in the digital world. Our team of experts is dedicated to providing personalized attention to each client to ensure their unique needs are met. Explore our services and contact us today to see how we can help your business grow.
+        At <span class="font-extrabold text-xl tracking-tight">KOKO IT Services</span>, we provide cutting-edge IT solutions to help businesses of all sizes thrive in the digital world. Our team of experts is dedicated to providing personalized attention to each client to ensure their unique needs are met. Explore our services and contact us today to see how we can help your business grow.
       </p>
     </div>
   </div>
