@@ -99,31 +99,9 @@
 
 <main id="main">
 
-<!-- HERO (full-bleed video + overlay)
-<section id="hero" class="full-bleed">
-  <div class="hero-video">
-    <video class="hero-video__bg" autoplay muted loop playsinline poster="/assets/hero-poster.jpg?v=2">
-      <source src="/assets/hero.mp4?v=2" type="video/mp4">
-    </video>
-    <div class="hero-video__overlay"></div>
-    <div class="hero-video__content">
-      <div class="hero-video__inner">
-        <h1 class="hero-title">
-          Enterprise-grade IT for SMBs <br class="br-lg"> in <span class="hero-accent">Greater Atlanta</span>
-        </h1>
-        <p class="hero-sub">Cybersecurity, cloud migration, colocation & end-user support — with measurable uptime gains and fewer tickets.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/contact.html#quote" class="px-5 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg">Get a Quote</a>
-          <a href="/services.html" class="px-5 py-3 rounded-xl bg-white/10 ring-1 ring-white/40 text-white">Explore Services</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
--->
-
 <!-- === HERO (full-bleed video with overlay & title) ===================== -->
 <section id="Home" class="hero">
+ <video ... aria-label="Data center operations"></video>
   <video class="hero__video" autoplay muted playsinline loop preload="metadata" poster="/assets/hero-poster.jpg">
     <source src="/assets/hero.mp4" type="video/mp4">
   </video>
@@ -134,7 +112,7 @@
     <h1 class="hero-title">
           Enterprise-grade IT for SMBs <br class="br-lg"> in <span class="hero-accent">Greater Atlanta</span>
     </h1>
-    <p class="hero__sub">
+    <p class="hero-sub">
       Cybersecurity, cloud migration, colocation &amp; end-user support — with measurable uptime gains and fewer tickets.
     </p>
 
@@ -165,7 +143,7 @@
 
   <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Managed IT -->
-    <a href="/services.html#managed" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services/managed.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-managed.jpg" alt="Managed IT — monitoring, patching, inventory, reporting">
       </span>
@@ -177,7 +155,7 @@
     </a>
 
     <!-- Cybersecurity & IR -->
-    <a href="/services.html#cyber" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services/cyber.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-cyber.jpg" alt="Cybersecurity & Incident Response — SOC, EDR, runbooks">
       </span>
@@ -189,7 +167,7 @@
     </a>
 
     <!-- Cloud Migration -->
-    <a href="/services.html#cloud" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services/cloud.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-cloud.jpg" alt="Cloud migration — Microsoft 365, Azure/AWS, identity & policy">
       </span>
@@ -201,7 +179,7 @@
     </a>
 
     <!-- Data Center Colocation -->
-    <a href="/services.html#colocation" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services/colocation.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-colocation.jpg" alt="Data center colocation — secure racks, monitored SLAs">
       </span>
@@ -245,7 +223,7 @@
       <ul class="tech-strip flex flex-wrap items-center justify-center gap-2 md:gap-3">
         <!-- Microsoft -->
         <li>
-          <a href="#" aria-label="Microsoft 365">
+          <a href="/services/m365-licensing.html" aria-label="Microsoft 365">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="1" y="1"  width="10" height="10" fill="#f25022"/>
               <rect x="13" y="1" width="10" height="10" fill="#7fba00"/>
@@ -257,7 +235,7 @@
         </li>
         <!-- Azure -->
         <li>
-          <a href="#" aria-label="Azure">
+          <a href="/services/cloud.html" aria-label="Azure">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <polygon points="6,56 28,8 44,8 22,56" fill="#0078d4"/>
               <polygon points="26,56 58,56 38,20" fill="#1490df"/>
@@ -267,7 +245,7 @@
         </li>
         <!-- NG Firewalls -->
         <li>
-          <a href="#" aria-label="Next-Gen Firewalls">
+          <a href="/services/ngfw.html" aria-label="Next-Gen Firewalls">
             <svg viewBox="0 0 64 24" aria-hidden="true">
               <rect x="2"  y="12" width="4" height="10" rx="2" fill="#1ba0d7"/>
               <rect x="10" y="8"  width="4" height="14" rx="2" fill="#1ba0d7"/>
@@ -282,7 +260,7 @@
         </li>
         <!-- DR & BC -->
         <li>
-          <a href="#" aria-label="Disaster Recovery and Business continuity">
+          <a href="/services/dr-bc.html" aria-label="Disaster Recovery and Business continuity">
             <svg viewBox="0 0 80 24" aria-hidden="true">
               <rect x="2"  y="6" width="16" height="12" rx="2" fill="#ee3124"/>
               <rect x="22" y="6" width="16" height="12" rx="2" fill="#ee3124"/>
@@ -294,7 +272,7 @@
         </li>
         <!-- Zero Trust -->
         <li>
-          <a href="#" aria-label="Zero Trust">
+          <a href="/services/zero-trust.html" aria-label="Zero Trust">
             <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" aria-hidden="true">
               <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/>
               <path d="M8.5 12.5l2.5 2.5 4.5-5"/>
@@ -304,7 +282,7 @@
         </li>
         <!-- NIST aligned -->
         <li>
-          <a href="#" aria-label="NIST aligned">
+          <a href="/services/nist.html" aria-label="NIST aligned">
             <svg viewBox="0 0 56 22" aria-hidden="true">
               <rect x="1" y="1" width="54" height="20" rx="6" fill="#0f172a"/>
               <text x="28" y="15" text-anchor="middle" font-size="12" font-family="system-ui,Arial" fill="#fff">NIST</text>

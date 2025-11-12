@@ -586,5 +586,15 @@ html, body { overflow-x: hidden; }
   .hero{ height: clamp(58vh, 65vw, 78vh); border-radius: 20px; }
 }
 
+/* Service detail pages */
+.svc-wrap{max-width:1000px;margin:0 auto;padding:clamp(20px,3vw,40px)}
+.breadcrumb{font-size:.9rem;color:#64748b;margin-bottom:12px}
+.breadcrumb a{color:#2563eb}
+.svc-hero{margin:18px 0 22px;border-radius:18px;overflow:hidden;background:#0b1c3a}
+.svc-hero img{display:block;width:100%;height:auto}
+.svc-meta{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 18px}
+.svc-meta .tag{background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:6px 10px;font-size:.85rem;color:#1d4ed8}
+.svc-cols{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:900px){.svc-cols{grid-template-columns:1.15fr .85fr}}
 
 
