@@ -607,4 +607,121 @@ html, body { overflow-x: hidden; }
     radial-gradient(900px 450px at 12% -6%, rgba(46,118,255,.28) 0%, transparent 60%),
     linear-gradient(180deg, rgba(16,45,255,.22) 0%, rgba(12,23,55,.38) 100%);
 }
+/* ===== Service detail layout (split 2-col) ===== */
+.svc-page { max-width: 1100px; margin: 0 auto; padding: clamp(20px,3vw,40px); }
+.svc-breadcrumb { font-size:.95rem; color:#64748b; margin-bottom:12px; }
+.svc-breadcrumb a { color:#2563eb; }
+
+.svc-header { margin-bottom: 18px; }
+.svc-header h1 { margin:0; font-size: clamp(28px,4.4vw,40px); line-height:1.15; }
+.svc-intro { margin:10px 0 20px; max-width: 70ch; }
+
+.svc-split { 
+  display:grid; 
+  grid-template-columns: 1.2fr .8fr; 
+  gap: clamp(18px,3vw,36px); 
+  align-items:start;
+}
+@media (max-width: 900px){ .svc-split { grid-template-columns: 1fr; } }
+
+.svc-main section + section { margin-top: 18px; }
+
+.svc-aside .media {
+  border-radius: 18px; overflow:hidden;
+  border:1px solid #e5e7eb; background:#0b1c3a;
+}
+.svc-aside .media img {
+  display:block; width:100%; height:auto;
+  max-height: 440px; object-fit: cover;
+}
+
+/* tags réutilisables */
+.svc-tags { display:flex; gap:10px; flex-wrap:wrap; margin: 8px 0 18px; }
+.svc-tags .tag { background:#eef2ff; border:1px solid #dbeafe; border-radius:999px; padding:6px 10px; font-size:.85rem; color:#1d4ed8 }
+
+/* petit espacement sous le header global */
+.page-top-spacer { height: 10px; }
+
+/* ===== Header variants ===== */
+.topbar{ position: sticky; top: 0; z-index: 50; }
+
+.topbar--overlay {            /* pour la Home au-dessus du hero video */
+  color:#fff;
+  background: transparent;
+}
+
+.topbar--solid {              /* pour les pages internes */
+  color:#0f172a;
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid #e5e7eb;
+  backdrop-filter: blur(8px);
+}
+
+/* hérite la couleur du header */
+.topbar a{ color: inherit; text-decoration: none; }
+.topbar nav a{ font-weight:600; margin: 0 .75rem; }
+.topbar a[aria-current="page"]{ color:#1d4ed8; }
+
+/* petit espace sous le header pour éviter le chevauchement */
+.page-top-spacer{ height: 10px; }
+/* ===== Header, brand & nav (Tailwind-free) ===== */
+.topbar{ position:sticky; top:0; z-index:60; }
+.topbar--overlay{ color:#fff; background:transparent; }        /* home */
+.topbar--solid{ color:#0f172a; background:rgba(255,255,255,.92);
+  border-bottom:1px solid #e5e7eb; backdrop-filter:blur(8px); } /* inner */
+
+.topbar__inner{ max-width:1200px; margin:0 auto; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px; }
+
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; white-space:nowrap; }
+.brand__logo{ width:40px; height:40px; border-radius:50%; object-fit:cover; display:block; }
+.brand__name{ font-weight:800; font-size:20px; letter-spacing:-.01em; }
+
+.nav a{ color:inherit; text-decoration:none; font-weight:600; margin:0 .75rem; }
+.nav a[aria-current="page"]{ color:#1d4ed8; }
+
+/* spacer so content doesn’t tuck under sticky header */
+.page-top-spacer{ height:10px; }
+
+/* ==== Trame bleue + carte service ==== */
+.page-bg {
+  /* dégradé brand (proche du hero) */
+  background: linear-gradient(180deg, #0b1c3a 0%, #1e3a8a 45%, #0b1c3a 100%);
+  padding: clamp(18px, 3vw, 36px) 0;
+}
+
+.svc-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(2, 6, 23, .25);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.svc-card__inner {
+  display: grid;
+  grid-template-columns: 1.25fr .85fr;
+  gap: clamp(18px, 3vw, 36px);
+  padding: clamp(20px, 3.2vw, 40px);
+}
+@media (max-width: 900px){
+  .svc-card__inner { grid-template-columns: 1fr; }
+}
+
+.svc-breadcrumb { color:#94a3b8; font-size:.95rem; margin-bottom:10px; }
+.svc-breadcrumb a { color:#bfdbfe; text-decoration: underline; }
+
+.svc-title { margin:0 0 8px; font-size: clamp(28px, 4.2vw, 40px); line-height:1.12; }
+.svc-intro { margin: 6px 0 14px; color:#334155; max-width: 70ch; }
+
+.svc-tags { display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 16px; }
+.svc-tags .tag { background:#eef2ff; border:1px solid #dbeafe; color:#1d4ed8; padding:6px 10px; border-radius:999px; font-size:.85rem; }
+
+.svc-media {
+  border-radius: 16px; overflow: hidden; border:1px solid #e5e7eb;
+  background: #0b1c3a;
+}
+.svc-media img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; }
 
