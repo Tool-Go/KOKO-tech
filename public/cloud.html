@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cloud Migration • KOKO IT Services</title>
+  <link rel="stylesheet" href="/site.css?v=svc1">
+</head>
+<body>
+
+  <!-- === HEADER (COLLER ICI LE MÊME HEADER QUE SUR index.html) ========= -->
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="/about.html" class="flex items-center gap-3">
+      <img src="/assets/kokoits-logo.jpeg" alt="KOKO IT Services logo" class="h-10 w-10 rounded-full object-cover">
+      <span class="font-extrabold text-xl tracking-tight">KOKO IT Services</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+      <a data-nav="home"     class="hover:text-blue-700" href="/index.html">Home</a>
+      <a data-nav="services" class="hover:text-blue-700" href="/services.html">Services</a>
+      <a data-nav="about"    class="hover:text-blue-700" href="/about.html">About us</a>
+      <a data-nav="contact"  class="hover:text-blue-700" href="/contact.html">Contact</a>
+    </nav>
+
+    <!-- CTA + burger -->
+    <div class="flex items-center gap-2">
+      <a href="/contact.html#quote" class="hidden md:inline-flex px-3 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold shadow">
+        Get a Quote
+      </a>
+      <button id="btn-menu"
+              class="md:hidden inline-flex items-center justify-center p-2 rounded-lg ring-1 ring-slate-300"
+              aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile: backdrop -->
+  <div id="nav-backdrop" class="fixed inset-0 bg-black/40 hidden md:hidden"></div>
+
+  <!-- Mobile: panel -->
+  <div id="mobile-nav"
+       class="md:hidden fixed top-0 left-0 right-0 translate-y-[-100%] opacity-0 transition-all duration-200 ease-out"
+       aria-hidden="true">
+    <div class="mx-3 mt-2 rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200 overflow-hidden">
+      <div class="px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+        <span class="font-semibold">Menu</span>
+        <button id="btn-close-menu" class="p-2 rounded-lg ring-1 ring-slate-300" aria-label="Close menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="px-2 py-2" aria-label="Mobile">
+        <a data-nav="home"     href="/index.html"   class="block px-3 py-2 rounded-lg hover:bg-slate-100">Home</a>
+        <a data-nav="services" href="/services.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Services</a>
+        <a data-nav="about"    href="/about.html"    class="block px-3 py-2 rounded-lg hover:bg-slate-100">About us</a>
+        <a data-nav="contact"  href="/contact.html"  class="block px-3 py-2 rounded-lg hover:bg-slate-100">Contact</a>
+      </nav>
+      <div class="p-3">
+        <a href="/contact.html#quote" class="block text-center px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold">
+          Get a Quote
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+  <div class="page-top-spacer"></div>
+  <!-- ================================================================== -->
+
+  <main id="main" class="svc-page">
+    <div class="svc-breadcrumb"><a href="/index.html#Services">Services</a> · Cloud Migration</div>
+
+    <div class="svc-header">
+      <h1>Cloud Migration &amp; Modernization</h1>
+      <p class="svc-intro">
+        We plan and execute secure, low-disruption moves to the cloud, then optimize cost, performance and resilience
+        across Microsoft 365, Azure and AWS.
+      </p>
+      <div class="svc-tags">
+        <span class="tag">Microsoft 365</span>
+        <span class="tag">Azure</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Identity</span>
+        <span class="tag">Policy</span>
+      </div>
+    </div>
+
+    <!-- Split 2 colonnes : texte à gauche, image à droite -->
+    <div class="svc-split">
+      <section class="svc-main">
+        <section>
+          <h2>What we deliver</h2>
+          <ul>
+            <li>Discovery &amp; readiness, risk and cost baselines</li>
+            <li>Migration runbooks with clear rollback plans</li>
+            <li>Identity &amp; access (Entra ID), policies and guardrails</li>
+            <li>Modern file services &amp; collaboration (M365)</li>
+            <li>Landing zones and IaC patterns (Azure/AWS)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Typical steps</h2>
+          <ol>
+            <li>Assessment &amp; sizing (source systems, constraints)</li>
+            <li>Identity &amp; security guardrails</li>
+            <li>Pilot migrations &amp; user validation</li>
+            <li>Cutover with rollback safety</li>
+            <li>Cost/perf optimization &amp; handover</li>
+          </ol>
+        </section>
+
+        <p style="margin-top:18px">
+          <a class="btn btn-primary" href="/contact.html#quote">Get a Quote</a>
+        </p>
+      </section>
+
+      <aside class="svc-aside">
+        <figure class="media">
+          <img src="/assets/services-cloud.jpg" alt="Cloud migration overview">
+        </figure>
+
+        <div class="panel" style="margin-top:16px">
+          <h3>Explore specific clouds</h3>
+          <ul>
+            <li><a href="/services/m365-licensing.html">Strategic Microsoft 365 Licensing</a></li>
+            <li><a href="/services/azure.html">Expert Azure Cloud Solutions</a></li>
+            <li><a href="/services/aws.html">AWS Cloud Migration &amp; Management</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+  <script>
+    // Highlight "Services" in nav si besoin
+    document.querySelectorAll('nav [data-nav="services"]').forEach(a=>a.setAttribute('aria-current','page'));
+  </script>
+</body>
+</html>

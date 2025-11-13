@@ -154,7 +154,7 @@
 
   <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Managed IT -->
-    <a href="/services/managed.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services.html#managed" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-managed.jpg" alt="Managed IT — monitoring, patching, inventory, reporting">
       </span>
@@ -166,7 +166,7 @@
     </a>
 
     <!-- Cybersecurity & IR -->
-    <a href="/services/cyber.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services.html#cyber" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-cyber.jpg" alt="Cybersecurity & Incident Response — SOC, EDR, runbooks">
       </span>
@@ -178,7 +178,7 @@
     </a>
 
     <!-- Cloud Migration -->
-    <a href="/services/cloud.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services.html#cloud" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-cloud.jpg" alt="Cloud migration — Microsoft 365, Azure/AWS, identity & policy">
       </span>
@@ -190,7 +190,7 @@
     </a>
 
     <!-- Data Center Colocation -->
-    <a href="/services/colocation.html" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
+    <a href="/services.html#colocation" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
         <img src="/assets/services-colocation.jpg" alt="Data center colocation — secure racks, monitored SLAs">
       </span>
@@ -246,14 +246,30 @@
         </li>
         <!-- Azure -->
         <li>
-          <a href="/services/cloud.html" aria-label="Azure">
+          <a href="/services/azure.html" aria-label="Azure">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <polygon points="6,56 28,8 44,8 22,56" fill="#0078d4"/>
               <polygon points="26,56 58,56 38,20" fill="#1490df"/>
             </svg>
-            <span class="label">Azure / AWS</span>
+            <span class="label"> Azure </span>
           </a>
         </li>
+	<!-- AWS -->
+	<li>
+	  <a href="/services/aws.html" aria-label="AWS">
+	    <svg viewBox="0 0 64 64" width="32" height="32" role="img" aria-hidden="true" focusable="false">
+	      <title>AWS (generic cloud icon)</title>
+	      <!-- Cloud outline -->
+	      <path d="M16 42h32c5 0 9-4 9-9s-4-9-9-9c-1.2 0-2.3.2-3.3.6A14 14 0 0 0 32 16
+ 	              c-6.5 0-11.8 4.4-13.3 10.3A7.5 7.5 0 0 0 16 42z"
+ 	           fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+ 	     <!-- Up arrow (accent) -->
+	      <path d="M24 36l8-8 8 8" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+	      <path d="M32 28v14"      fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+	    </svg>
+	    <span class="label"> AWS </span>
+	  </a>
+	</li>
         <!-- NG Firewalls -->
         <li>
           <a href="/services/ngfw.html" aria-label="Next-Gen Firewalls">
