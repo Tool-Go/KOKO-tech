@@ -1,11 +1,12 @@
 {
-  "name": "koko-it-site",
-  "version": "1.0.2",
+  "name": "ttech-site",
+  "version": "1.0.1",
   "private": true,
-  "description": "KOKO IT Services (Render-ready)",
-  "engines": { "node": "20.x" },
+  "description": "Ttech professional website (Render-ready, rebrandable)",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "brand:preview": "node scripts/brand-swap.js --config brand.ttech.json --dry-run",
+    "brand:apply": "node scripts/brand-swap.js --config brand.ttech.json"
   },
   "dependencies": {
     "compression": "^1.8.1",
@@ -15,4 +16,3 @@
     "nodemailer": "^6.9.14"
   }
 }
-
