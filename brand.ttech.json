@@ -15,7 +15,7 @@
     "canonical": "https://ttech-site.onrender.com/",
     "logo": "/assets/ttech-logo.jpeg",
     "ogTitlePrefix": "Ttech —",
-    "facebook": "https://www.facebook.com/"  // ajuste ou supprime si inutile
+    "facebook": "https://www.facebook.com/"
   },
   "extras": {
     "updateJsonLd": true,
