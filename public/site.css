@@ -713,7 +713,7 @@ html, body { overflow-x: hidden; }
 .svc-breadcrumb { color:#94a3b8; font-size:.95rem; margin-bottom:10px; }
 .svc-breadcrumb a { color:#bfdbfe; text-decoration: underline; }
 
-.svc-title { margin:0 0 8px; font-size: clamp(28px, 4.2vw, 40px); line-height:1.12; }
+.svc-title { margin:0 0 8px; font-size: clamp(18px, 4.2vw, 25px); line-height:1.12; }
 .svc-intro { margin: 6px 0 14px; color:#334155; max-width: 70ch; }
 
 .svc-tags { display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 16px; }
@@ -724,4 +724,30 @@ html, body { overflow-x: hidden; }
   background: #0b1c3a;
 }
 .svc-media img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; }
+
+/* Tech icons sizing */
+.services-icons li a svg { width: 32px; height: 32px; display:block; }
+.services-icons li a { display:flex; align-items:center; gap:10px; }
+
+/* --- Stabilise les tailles de titres de vignettes (Chrome/Opera) --- */
+html { font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+.svc-title{
+  /* Taille stable, très peu responsive */
+  font-size: 10px;
+  line-height: 1.15;
+  font-weight: 750;             /* évite le “bold synthétique” trop gras */
+  letter-spacing: -0.015em;
+  font-synthesis-weight: none;  /* Blink: empêche l’épaississement artificiel */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Option: verrou total au-dessus de 1280px */
+@media (min-width: 1280px){
+  .svc-title { font-size: 18px; }
+}
+
+/* S'assure que le conteneur ne “zoome” pas le texte */
+.service-card .p-6 { font-size: 1rem; }
 
