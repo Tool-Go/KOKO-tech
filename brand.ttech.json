@@ -1,0 +1,26 @@
+{
+  "from": {
+    "name": "KOKO IT Services",
+    "domain": "kokoits.com",
+    "logoPaths": [
+      "/assets/kokoits-logo.jpeg",
+      "/assets/kokoits-logo.jpg",
+      "/assets/kokoits-logo.png"
+    ],
+    "ogTitlePrefix": "KOKO IT Services —"
+  },
+  "to": {
+    "name": "Ttech",
+    "domain": "ttech.live",
+    "canonical": "https://ttech-site.onrender.com/",
+    "logo": "/assets/ttech-logo.jpeg",
+    "ogTitlePrefix": "Ttech —",
+    "facebook": "https://www.facebook.com/"  // ajuste ou supprime si inutile
+  },
+  "extras": {
+    "updateJsonLd": true,
+    "updateOg": true,
+    "updateCanonical": true,
+    "updateFaviconAlt": true
+  }
+}
