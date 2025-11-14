@@ -49,6 +49,40 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.google-analytics.com">
   <script defer src="/app.js"></script>
+<!-- Canonical (change to Render URL until switch is done) -->
+<link rel="canonical" href="https://www.kokoits.com/">
+
+<!-- Open Graph / Twitter -->
+<meta name="description" content="Managed IT, cybersecurity, cloud migration and colocation for SMBs in Greater Atlanta. Faster onboarding, fewer tickets, measured uptime.">
+<meta property="og:title" content="KOKO IT Services — Enterprise-grade IT">
+<meta property="og:description" content="Managed IT, cybersecurity, cloud, colocation. Measurable uptime gains and fewer tickets.">
+<meta property="og:image" content="/assets/hero-poster.jpg">
+<meta property="og:url" content="https://www.kokoits.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"KOKO IT Services",
+  "image":"/assets/kokoits-logo.jpeg",
+  "url":"https://www.kokoits.com/",
+  "telephone":"+1-770-686-7287",
+  "email":"sales@kokoits.com",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"1040 Founders BLVD",
+    "addressLocality":"Athens",
+    "addressRegion":"GA",
+    "postalCode":"30606",
+    "addressCountry":"US"
+  },
+  "areaServed":"Greater Atlanta",
+  "sameAs":["https://www.facebook.com/"]
+}
+</script>
+
 </head>
 <body class="bg-white text-slate-900">
 <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:px-3 focus:py-2 focus:rounded" href="#main">Skip to content</a>
@@ -58,7 +92,7 @@
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Brand -->
     <a href="/about.html" class="flex items-center gap-3">
-      <img src="/assets/kokoits-logo.jpeg" alt="KOKO IT Services logo" class="h-10 w-10 rounded-full object-cover">
+      <img src="/assets/kokoits-logo.jpeg" alt="KOKO IT Services logo" class="h-10 w-10 rounded-full object-cover" loading="lazy" decoding="async">
       <span class="font-extrabold text-xl tracking-tight">KOKO IT Services</span>
     </a>
 
@@ -156,7 +190,7 @@
     <!-- Managed IT -->
     <a href="/services.html#managed" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-managed.jpg" alt="Managed IT — monitoring, patching, inventory, reporting">
+        <img src="/assets/services-managed.jpg" alt="Managed IT — monitoring, patching, inventory, reporting" loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">Managed IT</div>
@@ -168,7 +202,7 @@
     <!-- Cybersecurity & IR -->
     <a href="/services.html#cyber" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-cyber.jpg" alt="Cybersecurity & Incident Response — SOC, EDR, runbooks">
+        <img src="/assets/services-cyber.jpg" alt="Cybersecurity & Incident Response — SOC, EDR, runbooks" loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">Cybersecurity & IR</div>
@@ -180,7 +214,7 @@
     <!-- Cloud Migration -->
     <a href="/services.html#cloud" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-cloud.jpg" alt="Cloud migration — Microsoft 365, Azure/AWS, identity & policy">
+        <img src="/assets/services-cloud.jpg" alt="Cloud migration — Microsoft 365, Azure/AWS, identity & policy" loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">Cloud Migration</div>
@@ -192,7 +226,7 @@
     <!-- Data Center Colocation -->
     <a href="/services.html#colocation" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-colocation.jpg" alt="Data center colocation — secure racks, monitored SLAs">
+        <img src="/assets/services-colocation.jpg" alt="Data center colocation — secure racks, monitored SLAs" loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">Data Center Colocation</div>
@@ -204,7 +238,7 @@
     <!-- End-user support & onboarding -->
     <a href="/services.html#end-user" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-support1.jpg" alt="End-user support & onboarding — helpdesk, MDM, device lifecycle">
+        <img src="/assets/services-support1.jpg" alt="End-user support & onboarding — helpdesk, MDM, device lifecycle"  loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">End-user support & onboarding</div>
@@ -216,7 +250,7 @@
     <!-- Procurement -->
     <a href="/services.html#procurement" class="service-card block rounded-2xl ring-1 ring-slate-200 hover:shadow-lg transition reveal overflow-hidden">
       <span class="thumb">
-        <img src="/assets/services-procurement.jpg" alt="Procurement — sourcing hardware, devices, licensing">
+        <img src="/assets/services-procurement.jpg" alt="Procurement — sourcing hardware, devices, licensing" loading="lazy" decoding="async">
       </span>
       <div class="p-6">
         <div class="svc-title font-semibold">IT Procurement</div>
@@ -325,7 +359,7 @@
 <!-- CASES -->
 <section id="cases" class="max-w-6xl mx-auto px-4 py-16">
   <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 reveal">
-    <img src="/assets/cases-office1.jpg" alt="Modern office meeting for service review" class="w-full h-56 object-cover">
+    <img src="/assets/cases-office1.jpg" alt="Modern office meeting for service review" class="w-full h-56 object-cover" loading="lazy" decoding="async">
     <div class="p-6 md:p-8">
       <h2 class="text-2xl md:text-3xl font-bold">Outcomes we deliver</h2>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
@@ -427,7 +461,7 @@
       <p class="text-sm text-gray-700">Email: <a class="underline" href="mailto:sales@kokoits.com">sales@kokoits.com</a></p>
       <p class="text-sm text-gray-700 mt-2">
         <a class="inline-flex items-center gap-2 underline decoration-slate-300 hover:decoration-blue-400"
-           href="https://www.facebook.com/profile.php?id=100071958372013#" target="_blank" rel="noopener" aria-label="KOKO IT Services on Facebook">
+           href="https://www.facebook.com/profile.php?id=100071958372013#" target="_blank" rel="noopener noreferrer" aria-label="KOKO IT Services on Facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5H16V5.1C15.7 5 14.8 5 13.8 5 11.5 5 10 6.3 10 8.8V11H7.8v3H10v7h3.5Z" fill="#0f172a"/>
           </svg>
