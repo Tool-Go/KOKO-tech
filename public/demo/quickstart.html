@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Quickstart – Acadie Intelligent</title>
+<style>
+  :root { --bg:#0f172a; --fg:#e5e7eb; --muted:#94a3b8; --ok:#16a34a; --bad:#ef4444; --card:#111827; }
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--fg)}
+  .wrap{max-width:920px;margin:0 auto;padding:24px}
+  h1{margin:0 0 8px;font-size:28px}
+  .sub{color:var(--muted);margin:0 0 24px}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  button{appearance:none;border:1px solid #334155;background:#0b1220;color:var(--fg);padding:10px 14px;border-radius:12px;cursor:pointer}
+  button:active{transform:scale(.98)}
+  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid #334155;color:var(--muted)}
+  .ok{color:var(--ok)} .bad{color:var(--bad)}
+  pre{white-space:pre-wrap;word-break:break-word;background:#0b1220;border:1px solid #334155;border-radius:12px;padding:12px;max-height:220px;overflow:auto}
+  input,textarea{width:100%;padding:10px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:var(--fg)}
+  .kpi{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Quickstart – Kiosk</h1>
+  <p class="sub">Page de test rapide (tactile, réseau, stockage, audio) pour le DTU-D.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>État</h3>
+      <div class="row">
+        <span class="pill">Heure <span id="clock" class="kpi"></span></span>
+        <span class="pill">En ligne: <span id="isonline" class="kpi"></span></span>
+        <span class="pill">Taille: <span id="vw" class="kpi"></span> × <span id="vh" class="kpi"></span></span>
+        <span class="pill">UA: <span id="ua"></span></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Tests réseau</h3>
+      <div class="row" style="margin-bottom:8px">
+        <button id="btn-head">HEAD self</button>
+        <button id="btn-img">Image self</button>
+        <button id="btn-dns">DNS (fetch même origine)</button>
+      </div>
+      <pre id="netlog">—</pre>
+    </div>
+
+    <div class="card">
+      <h3>Tests d’interaction</h3>
+      <div class="row" style="margin-bottom:8px">
+        <button id="btn-touch">+1 toucher</button>
+        <button id="btn-audio">Bip audio</button>
+        <button id="btn-vibrate">Vibration</button>
+        <button id="btn-storage">Stockage</button>
+      </div>
+      <div class="row"><span class="pill">Touches: <span id="touches" class="kpi">0</span></span></div>
+      <label>Clavier :</label>
+      <input id="kbd" placeholder="Tapez ici…">
+    </div>
+
+    <div class="card">
+      <h3>Console</h3>
+      <pre id="log">Prêt.</pre>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const log = (s) => { const el=$('log'); el.textContent += "\n" + s; el.scrollTop = el.scrollHeight; };
+  const net = (s) => { const el=$('netlog'); el.textContent += "\n" + s; el.scrollTop = el.scrollHeight; };
+  $('ua').textContent = navigator.userAgent;
+
+  // Horloge + online
+  function tick(){
+    const d = new Date();
+    $('clock').textContent = d.toLocaleTimeString();
+    $('isonline').textContent = navigator.onLine ? 'oui' : 'non';
+    $('isonline').className = navigator.onLine ? 'ok' : 'bad';
+    $('vw').textContent = window.innerWidth; $('vh').textContent = window.innerHeight;
+  }
+  tick(); setInterval(tick, 1000);
+  window.addEventListener('online', ()=>net('↗ en ligne')); 
+  window.addEventListener('offline', ()=>net('↘ hors ligne'));
+
+  // Réseau
+  $('netlog').textContent = '—';
+  $('btn-head').onclick = async () => {
+    try{
+      const r = await fetch(location.href, {method:'HEAD', cache:'no-store'});
+      net(`HEAD ${r.ok ? 'OK' : 'FAIL'} ${r.status}`);
+    }catch(e){ net('HEAD FAIL ' + e); }
+  };
+  $('btn-img').onclick = () => {
+    const t = Date.now();
+    const img = new Image();
+    img.onload = ()=>net('IMG OK ' + (Date.now()-t) + 'ms');
+    img.onerror = ()=>net('IMG FAIL');
+    img.src = location.origin + '/favicon.ico?ts='+t;
+  };
+  $('btn-dns').onclick = async () => {
+    try{
+      const r = await fetch(location.origin + '/demo/quickstart.html?ts=' + Date.now(), {method:'GET', cache:'no-store'});
+      net(`GET self ${r.ok ? 'OK' : 'FAIL'} ${r.status}`);
+    }catch(e){ net('GET self FAIL ' + e); }
+  };
+
+  // Interaction
+  let touches=0;
+  $('btn-touch').onclick = ()=>{ $('touches').textContent = ++touches; };
+  $('btn-audio').onclick = async ()=>{
+    try{
+      const ctx = new (window.AudioContext||window.webkitAudioContext)();
+      const o = ctx.createOscillator(); const g=ctx.createGain();
+      o.type='sine'; o.frequency.value=880; g.gain.value=0.05;
+      o.connect(g); g.connect(ctx.destination); o.start();
+      setTimeout(()=>{o.stop();ctx.close()}, 180);
+      log('Audio: bip joué');
+    }catch(e){ log('Audio: échec '+e); }
+  };
+  $('btn-vibrate').onclick = ()=>{ 
+    if(navigator.vibrate) { navigator.vibrate([50,30,50]); log('Vibration: ok'); }
+    else { log('Vibration: non supportée'); }
+  };
+  $('btn-storage').onclick = ()=>{
+    try{
+      localStorage.setItem('kiosk_test', String(Date.now()));
+      const v = localStorage.getItem('kiosk_test');
+      log('Stockage local OK: ' + v);
+    }catch(e){ log('Stockage: échec '+e); }
+  };
+
+  // Premier auto-test léger
+  $('btn-head').click();
+})();
+</script>
+</body>
+</html>
